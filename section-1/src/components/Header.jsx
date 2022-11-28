@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class Header extends Component {
   render() {
     return (
-      <div>
-        <div>Logo</div>
+      <header>
+        <div className='logo'>Logo</div>
         <input type='text' />
-      </div>
+      </header>
     );
   }
 }

@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #03a9fa;
+  text-align: center;
+}
+
+.logo {
+  color: '#fff';
+  font-family: 'Anton';
+  font-size: 40px;
+}
+
+header input {
+  font-size: 20px;
+  margin: 20px 0;
+}
