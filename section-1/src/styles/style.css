@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 header {
   background-color: #03a9fa;
   text-align: center;
@@ -18,4 +22,13 @@ header {
 header input {
   font-size: 20px;
   margin: 20px 0;
+}
+
+h3 {
+  margin-bottom: 8px;
+}
+
+.news-item {
+  padding: 20px;
+  border: 1px solid #ccc;
 }
