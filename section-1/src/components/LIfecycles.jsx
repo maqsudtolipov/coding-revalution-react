@@ -8,9 +8,35 @@ class Life extends Component {
     this.state = { name: "Francies" };
   }
 
-  static getDerivedStateFromProps() {
+  static getDerivedStateFromProps(props, state) {
     console.log("2-getDerivedStateFromProps");
+    if (state.name === "Ron") {
+      return {
+        name: "Mark",
+      };
+    }
+
     return null;
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("x-shouldComponentUpdate");
+    if (nextState.name === "Steve") {
+      return false;
+    }
+    return true;
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    let age = 20;
+    return age;
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log("x-componentDidUpdate");
+    // console.log(prevState);
+    // console.log(this.state);
+    console.log(snapshot);
   }
 
   componentDidMount() {
@@ -23,7 +49,19 @@ class Life extends Component {
 
   render() {
     console.log("3-return");
-    return <>Life</>;
+    return (
+      <>
+        <hr />
+        <div>{this.state.name}</div>
+        <button
+          onClick={() => {
+            this.setState({ name: "Ron" });
+          }}
+        >
+          Change name
+        </button>
+      </>
+    );
   }
 }
 
