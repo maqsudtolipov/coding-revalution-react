@@ -12,10 +12,22 @@ body {
   padding: 96px 0;
 }
 
+h1 {
+  font-size: 80px;
+}
+
 h3 {
   font-size: 30px;
   font-weight: 600;
   margin-bottom: 20px;
+}
+
+hr {
+  border: 0;
+  height: 3px;
+  background-color: red;
+  background-image: linear-gradient(to right, #9580ff, #92ffff);
+  margin: 10px 0;
 }
 
 button {
