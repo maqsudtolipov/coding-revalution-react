@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "prettier": "2.8.0"
+  },
+  "dependencies": {
+    "react-toastify": "^9.1.1"
   }
 }
