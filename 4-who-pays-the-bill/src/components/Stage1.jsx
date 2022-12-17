@@ -1,4 +1,4 @@
-import { Button, Input, Text } from 'dracula-ui';
+import { Button, Input, Text, Box, List } from 'dracula-ui';
 import { useState, useContext } from 'react';
 import { useRef } from 'react';
 import { MyContext } from '../context';
@@ -47,10 +47,35 @@ const Stage1 = () => {
         {error[0] ? <Text>{error[1]}</Text> : null}
         <br />
 
-        <Button type='submit' color='yellow' mt='sm'>
+        <Button type='submit' color='yellowPink' mt='sm'>
           Add
         </Button>
       </form>
+
+      {context.state.players && context.state.players.length > 0 ? (
+        <>
+          <Box color='purpleCyan' rounded='lg' mt='md' p='sm'>
+            <List>
+              {context.state.players.map((player, id) => (
+                <li key={id} className='drac-text'>
+                  {player}{' '}
+                  <Button
+                    onClick={() => context.removePlayer(id)}
+                    color='yellowPink'
+                  >
+                    Remove
+                  </Button>
+                </li>
+              ))}
+            </List>
+          </Box>{' '}
+          <div className='edge-buttons'>
+            <Button color='yellowPink' size='lg'>
+              NEXT
+            </Button>
+          </div>
+        </>
+      ) : null}
     </>
   );
 };

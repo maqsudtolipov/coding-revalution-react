@@ -14,6 +14,14 @@ class MyProvider extends React.Component {
     }));
   };
 
+  removePlayer = (id) => {
+    let newArr = this.state.players;
+    newArr.splice(id, 1);
+    this.setState((prevState) => ({
+      players: newArr,
+    }));
+  };
+
   render() {
     return (
       <>
@@ -21,6 +29,7 @@ class MyProvider extends React.Component {
           value={{
             state: this.state,
             addPlayer: this.addPlayer,
+            removePlayer: this.removePlayer,
           }}
         >
           {this.props.children}
