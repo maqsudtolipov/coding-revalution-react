@@ -1,4 +1,5 @@
 import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 
 const MyContext = React.createContext();
 
@@ -22,6 +23,29 @@ class MyProvider extends React.Component {
     }));
   };
 
+  next = () => {
+    const { players } = this.state;
+
+    if (players.length < 2) {
+      toast.error('You need at least two players', {
+        position: 'top-left',
+        autoClose: 2000,
+        theme: 'dark',
+      });
+    } else {
+      this.setState(
+        {
+          stage: 2,
+        },
+        () => {
+          setTimeout(() => {
+            console.log('Looser');
+          }, 2000);
+        }
+      );
+    }
+  };
+
   render() {
     return (
       <>
@@ -30,9 +54,11 @@ class MyProvider extends React.Component {
             state: this.state,
             addPlayer: this.addPlayer,
             removePlayer: this.removePlayer,
+            next: this.next,
           }}
         >
           {this.props.children}
+          <ToastContainer />
         </MyContext.Provider>
       </>
     );

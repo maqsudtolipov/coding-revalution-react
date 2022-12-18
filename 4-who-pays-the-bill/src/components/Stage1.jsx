@@ -70,7 +70,7 @@ const Stage1 = () => {
             </List>
           </Box>{' '}
           <div className='edge-buttons'>
-            <Button color='yellowPink' size='lg'>
+            <Button color='yellowPink' size='lg' onClick={() => context.next()}>
               NEXT
             </Button>
           </div>

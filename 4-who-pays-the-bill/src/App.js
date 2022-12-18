@@ -1,5 +1,6 @@
 import './App.css';
 import 'dracula-ui/styles/dracula-ui.css';
+import 'react-toastify/dist/ReactToastify.css';
 import { Heading } from 'dracula-ui';
 import Stage1 from './components/Stage1';
 import Stage2 from './components/Stage2';
