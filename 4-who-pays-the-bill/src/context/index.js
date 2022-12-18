@@ -7,6 +7,7 @@ class MyProvider extends React.Component {
   state = {
     stage: 1,
     players: [],
+    result: '',
   };
 
   addPlayer = (name) => {
@@ -39,11 +40,26 @@ class MyProvider extends React.Component {
         },
         () => {
           setTimeout(() => {
-            console.log('Looser');
+            this.generateLooser();
           }, 2000);
         }
       );
     }
+  };
+
+  generateLooser = () => {
+    const { players } = this.state;
+    this.setState({
+      result: players[Math.floor(Math.random() * players.length)],
+    });
+  };
+
+  resetGame = () => {
+    this.setState({
+      stage: 1,
+      players: [],
+      result: '',
+    });
   };
 
   render() {
@@ -55,6 +71,8 @@ class MyProvider extends React.Component {
             addPlayer: this.addPlayer,
             removePlayer: this.removePlayer,
             next: this.next,
+            generateLooser: this.generateLooser,
+            resetGame: this.resetGame,
           }}
         >
           {this.props.children}
