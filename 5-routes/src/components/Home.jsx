@@ -3,7 +3,7 @@ import { Text } from '@nextui-org/react';
 const Home = () => {
   return (
     <>
-      <Text  size="$2xl">Home</Text>
+      <Text size='$2xl'>Home</Text>
     </>
   );
 };

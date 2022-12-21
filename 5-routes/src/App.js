@@ -1,6 +1,6 @@
 import { NextUIProvider, createTheme, Container } from '@nextui-org/react';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Posts from './components/Posts';
 import './App.css';
 import Profile from './components/Profile';
@@ -32,6 +32,19 @@ function App() {
     <NextUIProvider theme={theme}>
       <Container>
         <BrowserRouter>
+          <header>
+            <Link to=''>Home</Link>
+            <Link to='/posts'>Posts</Link>
+            <Link
+              to={{
+                pathname: 'profile',
+                hash: 'steve',
+                search: '?profile=true',
+              }}
+            >
+              Profile
+            </Link>
+          </header>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='posts' element={<Posts />} />
