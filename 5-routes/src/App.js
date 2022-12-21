@@ -11,6 +11,7 @@ import Posts from './components/Posts';
 import './App.css';
 import Profile from './components/Profile';
 import Home from './components/Home';
+import Post from './components/Post';
 
 const theme = createTheme({
   type: 'dark', // light / dark
@@ -38,7 +39,13 @@ function App() {
     <NextUIProvider theme={theme}>
       <Container>
         <BrowserRouter>
-          <Grid.Container display='flex' justify='space-between'>
+          <Grid.Container
+            display='flex'
+            justify='space-between'
+            css={{
+              marginBottom: 24,
+            }}
+          >
             <Grid>
               <Text>My App</Text>
             </Grid>
@@ -74,6 +81,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='posts' element={<Posts />} />
+            <Route path='posts/:id' element={<Post />} />
             <Route path='profile' element={<Profile />} />
           </Routes>
         </BrowserRouter>
