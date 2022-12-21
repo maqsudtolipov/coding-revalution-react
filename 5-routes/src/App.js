@@ -6,7 +6,7 @@ import {
   Text,
 } from '@nextui-org/react';
 
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
 import Posts from './components/Posts';
 import './App.css';
 import Profile from './components/Profile';
@@ -50,14 +50,22 @@ function App() {
               <Text>My App</Text>
             </Grid>
             <Grid>
-              <Link
-                style={{
-                  marginRight: 12,
-                }}
+              <NavLink
+                style={({ isActive }) =>
+                  isActive
+                    ? {
+                        color: '#17c964',
+                        borderBottom: '3px solid #17c964',
+                        marginRight: 12,
+                      }
+                    : {
+                        marginRight: 12,
+                      }
+                }
                 to='/'
               >
                 Home
-              </Link>
+              </NavLink>
               <Link
                 style={{
                   marginRight: 12,
