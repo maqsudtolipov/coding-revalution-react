@@ -91,6 +91,22 @@ function App() {
             <Route path='posts' element={<Posts />} />
             <Route path='posts/:id' element={<Post />} />
             <Route path='profile' element={<Profile />} />
+            <Route
+              path='*'
+              element={
+                <>
+                  <Text
+                    h1
+                    css={{
+                      textGradient: '45deg, $yellow600 -20%, $red600 100%',
+                      textAlign: 'center',
+                    }}
+                  >
+                    404: Not found
+                  </Text>
+                </>
+              }
+            />
           </Routes>
         </BrowserRouter>
       </Container>
