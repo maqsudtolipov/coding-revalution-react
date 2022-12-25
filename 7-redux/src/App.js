@@ -4,7 +4,7 @@ import img from './assets/popcorn.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button, Text } from '@nextui-org/react';
 import { addMovie } from './store/movies';
-import { setType } from './store/users';
+import { setType, fetchUsers } from './store/users';
 
 function App() {
   const movies = useSelector((state) => state.movies.list);
@@ -42,6 +42,8 @@ function App() {
       <br />
       <Text h3>User type: {users.type}</Text>
       <Button onClick={() => dispatch(setType('Admin'))}>Set Type</Button>
+      <br />
+      <Button onClick={() => dispatch(fetchUsers())}>Get Users</Button>
     </div>
   );
 }
